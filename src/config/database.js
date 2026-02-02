@@ -1,5 +1,5 @@
 const { Pool } = require('pg');
-require('dotenv').config({ path: '.env.local' });
+require('dotenv').config({ path: '.env.production' }); // менять на local для локальной разработки
 
 const isProduction = process.env.NODE_ENV === 'production';
 
