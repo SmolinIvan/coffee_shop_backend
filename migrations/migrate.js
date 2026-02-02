@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { Pool } = require('pg');
-require('dotenv').config({ path: '.env.local' });
+require('dotenv').config({ path: '.env.production' }); // заменить на local при локальной разработке
 
 const pool = new Pool({
   host: process.env.DB_HOST,
