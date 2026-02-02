@@ -8,7 +8,8 @@
     "start": "node src/app.js",
     "migrate": "node migrations/migrate.js",
     "migrate:create": "node migrations/create-migration.js",
-    "seed": "psql -U coffee_admin -d coffee_shop -f seeds/initial_dishes.sql"
+    "seed2": "psql -U coffee_admin -d coffee_shop -f seeds/initial_dishes.sql",
+    "seed": "psql -U coffee_admin -d coffee_shop -h localhost -f seeds/initial_dishes.sql"
   },
   "keywords": ["coffee", "api", "nodejs"],
   "author": "Your Name",
