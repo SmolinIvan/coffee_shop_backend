@@ -3,6 +3,7 @@ const cors = require('cors');
 require('dotenv').config({ path: '.env.local' });
 
 const menuRoutes = require('./routes/menu');
+const userRoutes = require('./routes/users')
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -39,6 +40,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/menu', menuRoutes);
+app.use('/api/users', userRoutes);
 
 // Health check
 app.get('/health', (req, res) => {

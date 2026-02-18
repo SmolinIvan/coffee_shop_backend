@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const menuController = require('../controllers/menuController');
+const { verifyToken, verifyAdmin, verifyManager } = require('../middleware/auth');
 
 // Категории
 router.get('/categories', menuController.getCategories);
@@ -8,8 +9,9 @@ router.get('/categories', menuController.getCategories);
 // CRUD для блюд
 router.get('/', menuController.getAllItems);
 router.get('/:id', menuController.getItemById);
-router.post('/', menuController.createItem);
-router.put('/:id', menuController.updateItem);
-router.delete('/:id', menuController.deleteItem);
+
+router.post('/', verifyToken, verifyManager, menuController.createItem);
+router.put('/:id', verifyToken, verifyManager, menuController.updateItem);
+router.delete('/:id', verifyToken, verifyAdmin, menuController.deleteItem);
 
 module.exports = router;
